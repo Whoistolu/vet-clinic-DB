@@ -1,7 +1,8 @@
 /* Database schema to keep the structure of entire database. */
+DROP table IF EXISTS animals;
 
 CREATE TABLE animals (
-    id int,
+    id serial primary key,
     name varchar(100),
     date_of_birth date,
     escape_attempts int,
