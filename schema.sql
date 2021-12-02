@@ -1,22 +1,7 @@
 /* Database schema to keep the structure of entire database. */
 
-DROP TABLE IF EXISTS animals;
-DROP TABLE IF EXISTS owners;
-DROP TABLE IF EXISTS species;
-
-CREATE TABLE owners (
-    id SERIAL NOT NULL PRIMARY KEY,
-    full_name varchar(100),
-    AGE int
-);
-
-CREATE TABLE species (
-    id SERIAL NOT NULL PRIMARY KEY,
-    name varchar(100)
-);
-
 CREATE TABLE animals (
-    id SERIAL NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name varchar(100),
     date_of_birth date,
     escape_attempts int,
@@ -24,5 +9,29 @@ CREATE TABLE animals (
     weight_kg decimal,
     species_id INT,
     owner_id INT, 
-    CONSTRAINT fk_species FOREIGN KEY(species_id) REFERENCES species(id),
-    CONSTRAINT fk_owners FOREIGN KEY(owner_id) REFERENCES owners(id)
+);
+
+
+CREATE TABLE owners (
+    id SERIAL PRIMARY KEY,
+    full_name varchar(100),
+    AGE int
+);
+
+CREATE TABLE species (
+    id SERIAL PRIMARY KEY,
+    name varchar(100)
+);
+
+/* MODIFY animals table*/
+
+ALTER TABLE animals
+DROP COLUMN species;
+
+ALTER TABLE animals
+    ADD species_id INT,
+    ADD CONSTRAINT species_id FOREIGN KEY(species_id) REFERENCES species(id);
+
+ALTER TABLE animals
+    ADD owners_id INT,
+    ADD CONSTRAINT owners_id FOREIGN KEY(owners_id) REFERENCES owners(id);
