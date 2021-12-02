@@ -1,21 +1,8 @@
 /* Database schema to keep the structure of entire database. */
 
-IF EXISTS(SELECT name FROM sys.tables WHERE NAME LIKE '%animals%')
-BEGIN
-DROP TABLE animals;
-END
-
-IF EXISTS(SELECT name FROM sys.tables WHERE NAME LIKE '%owners%')
-BEGIN
-DROP TABLE owners;
-END
-
-
-IF EXISTS(SELECT name FROM sys.tables WHERE NAME LIKE '%species%')
-BEGIN
-DROP TABLE species;
-END
-
+DROP TABLE IF EXISTS animals;
+DROP TABLE IF EXISTS owners;
+DROP TABLE IF EXISTS species;
 
 CREATE TABLE owners (
     id SERIAL NOT NULL PRIMARY KEY,
