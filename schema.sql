@@ -5,18 +5,18 @@ DROP TABLE IF EXISTS owners;
 DROP TABLE IF EXISTS species;
 
 CREATE TABLE owners (
-    id SERIAL NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     full_name varchar(100),
     AGE int
 );
 
 CREATE TABLE species (
-    id SERIAL NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name varchar(100)
 );
 
 CREATE TABLE animals (
-    id SERIAL NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name varchar(100),
     date_of_birth date,
     escape_attempts int,
