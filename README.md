@@ -14,9 +14,17 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 
 ## Authors
+
+👤 **Author1**
 :bearded_person: **Hector**
   - GitHub: [@githubhandle](https://github.com/Hector096)
   - Linkedin: [@linkedinhandle](https://www.linkedin.com/in/hector096/)
+
+👤 **Author2**
+:bearded_person: **Ajise Toluwase**
+- GitHub: [@githubhandle](https://github.com/Whoistolu)
+- Twitter: [@twitterhandle](https://twitter.com/Littletolu)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/toluwase-ajise-9b40411b2/)
 
 ## 🤝 Contributing
 
