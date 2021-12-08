@@ -24,3 +24,33 @@ CREATE TABLE treatments(
   type          VARCHAR(50),
   name          VARCHAR(50)
 );
+
+
+CREATE TABLE invoices(
+  id            INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  total_amount          decimal,
+  generated_amount          TIMESTAMP,
+  payed_at          TIMESTAMP,
+  medical_history_id INT,
+
+  CONSTRAINT fk_medical_history_id
+      FOREIGN KEY(medical_history_id) 
+	  REFERENCES medical_histories(id)  
+
+);
+
+CREATE INDEX invoices_medical_history_id ON invoices(medical_history_id);
+
+CREATE TABLE invoice_items(
+  id            INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  unit_price    decimal,
+  total_price    decimal,
+  quantity      INT,
+  invoice_id     INT,
+
+  CONSTRAINT fk_invoice_id
+      FOREIGN KEY(invoice_id) 
+	  REFERENCES invoices(id)  
+);
+
+CREATE INDEX invoice_items_invoice_id ON invoice_items(invoice_id);
